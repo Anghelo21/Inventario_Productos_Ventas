@@ -163,6 +163,14 @@ void listarVentas(){
     }
 }
 
+void calcularTotalVentas(){
+    float totalVentas=0;
+    for (int i=0; i<cantidadVentas; i++){
+        totalVentas+=ventas[i].precioTotal;
+    }
+    cout<<"El total de las ventas realizadas es: "<<totalVentas<<endl;
+}
+
 int main(){
 	int opcion;
     do{
@@ -202,7 +210,7 @@ int main(){
                 listarVentas();
                 break;
             case 8:
-                //calcularTotalVentas();
+                calcularTotalVentas();
                 break;
             case 9:
                 cout<<"Saliendo..."<<endl;
