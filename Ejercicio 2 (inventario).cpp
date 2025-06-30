@@ -93,6 +93,27 @@ void actualizarProducto(){
     }
 }
 
+void eliminarProducto(){
+    string nombreBusqueda;
+    cout<<"Ingrese el nombre del producto a eliminar: ";
+    getline(cin, nombreBusqueda);
+    bool encontrado=false;
+    for(int i=0; i<cantidadProductos; i++){
+        if(productos[i].nombre==nombreBusqueda){
+            for(int j=i; j<cantidadProductos-1; j++){
+                productos[j]=productos[j+1];
+            }
+            cantidadProductos--;
+            cout<<"Producto eliminado"<<endl;
+            encontrado=true;
+            break;
+        }
+    }
+    if(encontrado==false){
+        cout<<"Producto no encontrado"<<endl;
+    }
+}
+
 int main(){
 	int opcion;
     do{
@@ -123,7 +144,7 @@ int main(){
                 actualizarProducto();
                 break;
             case 5:
-                //eliminarProducto();
+                eliminarProducto();
                 break;
             case 6:
                 //registrarVenta();
