@@ -70,6 +70,29 @@ void buscarProducto(){
     }
 }
 
+void actualizarProducto(){
+    string nombreBusqueda;
+    cout<<"Ingrese el nombre del producto a actualizar: ";
+    getline(cin, nombreBusqueda);
+    bool encontrado=false;
+    for (int i=0; i<cantidadProductos; i++) {
+        if (productos[i].nombre==nombreBusqueda){
+            cout<<"Producto encontrado:"<<endl;
+            cout<<"Nombre: "<<productos[i].nombre<<endl;
+            cout<<"Precio actual: "<<productos[i].precio<<endl;
+            cout<<"Ingrese el nuevo precio: ";
+            cin>>productos[i].precio;
+            cin.ignore();
+            cout<<"Producto actualizado"<<endl;
+            encontrado=true;
+            break;
+        }
+    }
+    if (encontrado==false){
+        cout<<"Producto no encontrado"<<endl;
+    }
+}
+
 int main(){
 	int opcion;
     do{
@@ -97,7 +120,7 @@ int main(){
                 buscarProducto();
                 break;
             case 4:
-                //actualizarProducto();
+                actualizarProducto();
                 break;
             case 5:
                 //eliminarProducto();
