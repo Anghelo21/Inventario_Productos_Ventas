@@ -114,6 +114,42 @@ void eliminarProducto(){
     }
 }
 
+void registrarVenta(){
+    if(cantidadProductos==0){
+        cout<<"No hay productos registrados para realizar ventas"<<endl;
+        return;
+    }
+    string nombreProducto;
+    int cantidad;
+    cout<<"Ingrese el nombre del producto vendido: ";
+    getline(cin, nombreProducto);
+    bool encontrado=false;
+    float precioProducto=0.0;
+    for (int i=0; i<cantidadProductos; i++){
+        if(productos[i].nombre==nombreProducto){
+            precioProducto=productos[i].precio;
+            encontrado=true;
+            break;
+        }
+    }
+    if (encontrado){
+        cout<<"Ingrese la cantidad vendida: ";
+        cin>>cantidad;
+        cin.ignore();
+        float precioTotal=precioProducto*cantidad;
+        Venta nuevaVenta;
+        nuevaVenta.idVenta=contadorVentas++;
+        nuevaVenta.producto=nombreProducto;
+        nuevaVenta.cantidad=cantidad;
+        nuevaVenta.precioTotal=precioTotal;
+        ventas[cantidadVentas]=nuevaVenta;
+        cantidadVentas++;
+        cout<<"Venta registrada exitosamente"<<endl;
+    } else {
+        cout<<"Producto no encontrado"<<endl;
+    }
+}
+
 int main(){
 	int opcion;
     do{
@@ -147,7 +183,7 @@ int main(){
                 eliminarProducto();
                 break;
             case 6:
-                //registrarVenta();
+                registrarVenta();
                 break;
             case 7:
                 //listarVentas();
