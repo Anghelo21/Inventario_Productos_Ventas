@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX_PRODUCTOS=100;
+const int MAX_VENTAS=100;
+
+struct Producto{
+    string nombre;
+    float precio;
+};
+
+struct Venta{
+    int idVenta;
+    string producto;
+    int cantidad;
+    float precioTotal;
+};
+
+int main(){
+	int opcion;
+    do{
+        cout<<"\n --- Menu --- \n";
+        cout<<"1. Registrar un nuevo producto\n";
+        cout<<"2. Listar los productos registrados\n";
+        cout<<"3. Buscar un producto por nombre\n";
+        cout<<"4. Actualizar los datos de un producto\n";
+        cout<<"5. Eliminar un producto\n";
+        cout<<"6. Registrar una venta\n";
+        cout<<"7. Listar las ventas realizadas\n";
+        cout<<"8. Calcular el total de ventas realizadas\n";
+        cout<<"9. Salir del programa\n";
+        cout<<"Seleccione una opcion: ";
+        cin>>opcion;
+        cin.ignore();
+        switch(opcion){
+            case 1:
+                //registrarProducto();
+                break;
+            case 2:
+                //listarProductos();
+                break;
+            case 3:
+                //buscarProducto();
+                break;
+            case 4:
+                //actualizarProducto();
+                break;
+            case 5:
+                //eliminarProducto();
+                break;
+            case 6:
+                //registrarVenta();
+                break;
+            case 7:
+                //listarVentas();
+                break;
+            case 8:
+                //calcularTotalVentas();
+                break;
+            case 9:
+                cout<<"Saliendo..."<<endl;
+                break;
+            default:
+                cout<<"Opción invalida"<<endl;
+                break;
+        }
+    } while(opcion!=9);
+	return 0;
+}
