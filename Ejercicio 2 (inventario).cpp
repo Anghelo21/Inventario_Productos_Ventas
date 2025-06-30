@@ -39,6 +39,18 @@ void registrarProducto(){
 	}
 }
 
+void listarProductos(){
+    if(cantidadProductos==0){
+        cout<<"No hay productos registrados"<<endl;
+    } else{	
+    	for(int i=0; i<cantidadProductos; i++){
+        	cout<<"Producto #"<<(i + 1)<<endl;
+        	cout<<"Nombre: "<<productos[i].nombre<<endl;
+        	cout<<"Precio: "<<productos[i].precio<<endl;
+    	}
+    }
+}
+
 int main(){
 	int opcion;
     do{
@@ -60,7 +72,7 @@ int main(){
                 registrarProducto();
                 break;
             case 2:
-                //listarProductos();
+                listarProductos();
                 break;
             case 3:
                 //buscarProducto();
