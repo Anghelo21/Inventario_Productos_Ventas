@@ -150,6 +150,19 @@ void registrarVenta(){
     }
 }
 
+void listarVentas(){
+    if(cantidadVentas==0){
+        cout<<"No hay ventas registradas"<<endl;
+        return;
+    }
+    for(int i=0; i<cantidadVentas; i++){
+        cout<<"Venta #"<<ventas[i].idVenta<<endl;
+        cout<<"Producto: "<<ventas[i].producto<<endl;
+        cout<<"Cantidad: "<<ventas[i].cantidad<<endl;
+        cout<<"Precio Total: "<<ventas[i].precioTotal<<endl;
+    }
+}
+
 int main(){
 	int opcion;
     do{
@@ -186,7 +199,7 @@ int main(){
                 registrarVenta();
                 break;
             case 7:
-                //listarVentas();
+                listarVentas();
                 break;
             case 8:
                 //calcularTotalVentas();
