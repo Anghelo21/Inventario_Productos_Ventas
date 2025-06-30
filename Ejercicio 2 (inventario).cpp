@@ -17,6 +17,28 @@ struct Venta{
     float precioTotal;
 };
 
+Producto productos[MAX_PRODUCTOS];
+Venta ventas[MAX_VENTAS];
+int cantidadProductos=0;
+int cantidadVentas=0; 
+int contadorVentas=1;
+
+void registrarProducto(){
+    if(cantidadProductos>=MAX_PRODUCTOS){
+        cout<<"No se pueden agregar más productos"<<endl;
+    } else{
+    Producto nuevoProducto;
+    cout<<"Ingrese el nombre del producto: ";
+    getline(cin, nuevoProducto.nombre);
+    cout<<"Ingrese el precio del producto: ";
+    cin>>nuevoProducto.precio;
+    cin.ignore();
+    productos[cantidadProductos]=nuevoProducto;
+    cantidadProductos++;
+    cout<<"Producto registrado"<<endl;
+	}
+}
+
 int main(){
 	int opcion;
     do{
@@ -35,7 +57,7 @@ int main(){
         cin.ignore();
         switch(opcion){
             case 1:
-                //registrarProducto();
+                registrarProducto();
                 break;
             case 2:
                 //listarProductos();
@@ -62,7 +84,7 @@ int main(){
                 cout<<"Saliendo..."<<endl;
                 break;
             default:
-                cout<<"Opción invalida"<<endl;
+                cout<<"Opcion invalida"<<endl;
                 break;
         }
     } while(opcion!=9);
